@@ -1,19 +1,40 @@
-import JsonProcessor from '@/components/JsonProcessor';
+import React from "react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            JSON Data Processor
+    <section className="bg-gray-50">
+      <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-extrabold sm:text-5xl">
+            Seamlessly Format JSON Data.
+            <strong className="font-extrabold text-red-700 sm:block">
+              Streamline Your Workflow.{" "}
+            </strong>
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Upload your JSON data and store it in Firebase with ease
+
+          <p className="mt-4 sm:text-xl/relaxed">
+            Upload, preview, and process your JSON files effortlessly. Simplify
+            data handling and integrate it into Firebase in no time.
           </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
+              href="Parse"
+            >
+              Get Started
+            </Link>
+
+            <Link
+              className="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
+              href="https://tejasviraj.vercel.app/"
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
-        <JsonProcessor />
       </div>
-    </div>
+    </section>
   );
 }
