@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
-import { Upload, CheckCircle, AlertCircle, LoaderCircle } from "lucide-react";
+import { Upload, LoaderCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -142,7 +142,7 @@ export default function JsonProcessor() {
           </div>
         )}
 
-        {/* Process Button */}
+
         <div className="flex justify-end">
           <Button
             onClick={processJson}
