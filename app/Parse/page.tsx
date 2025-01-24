@@ -24,7 +24,13 @@ const Parse = () => {
     reader.onload = (event) => {
       const text = event.target?.result;
       try {
-        setJsonInput(JSON.stringify(JSON.parse(text as string), null, 2));
+        const parsedJson = JSON.parse(text as string);
+        // Assuming each object in the JSON array needs an 'id' property
+        const jsonWithIds = parsedJson.map((item, index) => ({
+          ...item,
+          id: index + 1, // Assigning a unique id to each object
+        }));
+        setJsonInput(JSON.stringify(jsonWithIds, null, 2));
       } catch {
         toast.error("Invalid JSON file");
       }
@@ -80,7 +86,7 @@ const Parse = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-16 px-6 sm:px-8">
+    <section className="min-h-screen  dark:from-gray-900 dark:to-gray-800 py-16 px-6 sm:px-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -147,7 +153,9 @@ const Parse = () => {
             {/* JSON Preview */}
             {jsonInput && (
               <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-900 rounded-md overflow-auto">
-                <pre className="text-sm text-gray-800 dark:text-gray-200">{jsonInput}</pre>
+                <pre className="text-sm text-gray-800 dark:text-gray-200">
+                  {jsonInput}
+                </pre>
               </div>
             )}
 
